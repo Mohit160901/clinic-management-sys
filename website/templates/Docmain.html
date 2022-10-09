@@ -1,0 +1,73 @@
+{% extends "docs1.html" %}
+{% block title %} Doctor Page {% endblock %}
+
+{% block content %}
+<h1 align="center"> Appointment List </h1>
+ <table class="table table-striped">
+         <thead  class="thead-dark">
+            <tr>
+               <th>Name</th>
+               <th>Email</th>
+               <th>Phone</th>
+                <th>Appointment</th>
+                <th>Message</th>
+                <th>User Id</th>
+            </tr>
+         </thead>
+         
+         <tbody style="border:2px solid black">
+            {% for patients in appoint %}
+               <tr>
+
+                  <td>{{ patients.name }}</td>
+                  <td> {{ patients.email }}</td>
+                  <td> {{ patients.phone }}</td>
+                  <td> {{ patients.appointment_date}}</td>
+                   <td> {{ patients.message }}</td>
+                   <td> {{ patients.user_id }}</td>
+
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+
+
+<h1 align="center"> Information of Patients </h1>
+ <table class="table table-striped">
+         <thead  class="thead-dark">
+            <tr>
+               <th>Data</th>
+               <th>Date</th>
+               <th>User Id</th>
+
+            </tr>
+         </thead>
+
+         <tbody style="border:2px solid black">
+            {% for infos in info %}
+               <tr>
+
+                  <td>{{ infos.data }}</td>
+                  <td> {{ infos.date }}</td>
+                  <td> {{ infos.user_id }}</td>
+
+
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+
+
+<!-- <h1 align="center"> Appointment List </h1>
+<ul class="list-group list-group-flush" id="table1">
+    {% for appt in appoint %}
+    <li class="list-group-item">
+            {{ appt.name , appt.email , appt.phone , appt.appointment_date , appt.message , appt.message, appt.user_id}}
+
+
+        </li>
+    {% endfor %}
+</ul>
+-->
+
+{% endblock %}
